@@ -1,92 +1,95 @@
 # SPMIS
 
+### STUDENT PROJECT MANAGEMENT INFORMATION SYSTEM ( 학생 프로젝트 관리 정보 시스템 )
 
 
-## Getting started
+# 팀원 
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### 정재령
+#### 기능 개발 
+- 프로젝트 배포 및 파이프라인 
+- Spring Security와 Oauth2를 사용한 로그인
+- 디스코드 웹훅(알림)
+- 대시보드
+- 회의방 링크 및 웹훅
+- 공개 프로젝트 
+- 그룹원 
+- 파일 공유 및 프로필 저장(개발 진행 중)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+### 백진우
+#### 기능 개발
+- chart  
+- 이메일 인증
+- 칸반 관련 및 태스크
+- 프로젝트 리스트
+- 문서 변환 모듈(개발 진행 중)
+- 간트 차트 및 캘린더 제작(개발 진행 중)
 
-## Add your files
+### 공통작업
+인원수가 적어 백-프론트로 나눈다기보다는 기능 위주로 나누어서 개발하였습니다.
+특히 프론트의 경우 먼저 기본 틀을 만들어 놓고 필요한 기능이 있다면 파트를 맡은 사람이 수정하여 사용하였습니다.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+# 기능 
+## 사용자 관리(Login, join)
+- Security와 Oauth2 기술을 사용하여 Form 로그인 구글계정을 이용한 로그인
+- 프로젝트별 사용자 권한관리 (개선중)
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/dongyang_spmis_univ/spmis.git
-git branch -M main
-git push -uf origin main
-```
+## Mypage
+- 프로필 관리(미구현)
+- 패스워드 변경
+- 프로젝트 참가요청 확인 및 수락, 거절
+- 닉네임 변경
 
-## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/dongyang_spmis_univ/spmis/-/settings/integrations)
+## 프로젝트 관리
+#### Project List
+- 참여중인 프로젝트들의 리스트를 확인하고 새로운 프로젝트 생성
 
-## Collaborate with your team
+### Project
+- TO DO 리스트의 칸반 형식으로 작업 진척도 관리
+- Task(작업 내용) 생성, 수정, 삭제
+- 칸반 생성, 수정, 삭제
+- 프로젝트별 룰을 생성, 삭제
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+## DashBoard
+- 본인이 맡은 작업내용, 프로젝트, 프로젝트별 회의방 링크들을 확인
 
-## Test and Deploy
+## Project Settings
+- 프로젝트 삭제
+- 공개범위 수정
+- 참여자 별 작업 수 차트로 확인
+- 그룹원 추가, 삭제 및 권한 수정
+- 회의방 링크 추가 ( 외부 회의방 ex) discord, kakao 오픈 채팅방, 줌 등의 링크)
+- 디스코드 웹훅 기능 ( 프로젝트 공지사항을 discord 회의방에 동시에 올려주기 위한 웹훅)
 
-Use the built-in continuous integration in GitLab.
+## Public Project List
+- 공개된 프로젝트 리스트 확인
+- 연결된 프로젝트의 정보를 확인한다.
+  (현재는 project 페이지로 바로 이동하지만 새로운 페이지를 하나두어서 참여자와는 다른 화면을 보일 수 있게끔 개선)
+- 리스트에 참여버튼으로 프로젝트에 참여요청이 가능 
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+# 기술 스택
+- 개발언어 : Java, JavaScript, HTML, CSS 
+- IDE : Intellij
+- Framework : Spring, Spring Security 
+- view : Thymeleaf
+- DB : MySql(workbentch를 사용하여 관리), mybaties
+- 배포 : Heroku
+- CI/CD : GitLab
+- 라이브러리 : chart.js
+- 협업 도구 : GitLab, GitHub
 
-***
 
-# Editing this README
+# 개선할 사항 및 현재 미구현 기능
+- 현재 프로젝트에 참가 요청을 넣거나 참가 요청을 받으면 수락하지 않음에도 프로젝트 리스트에 뜨는 문제가 발생
+- 공개 프로젝트에 접근할때 공개 범위를 지정할때 상세하게 설정하여 보여줄 수 있도록 개선
+- Project Setting쪽에 몰려있는 기능들을 페이지 분리하여 적용
+- 파일 공유 기능 개발
+- 문서 작성 모듈 개발
+- 간트 차트 및 캘린더 제작
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+# 배포 링크
+https://spmis.herokuapp.com/
 
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## 이슈는 여기 repository에 
