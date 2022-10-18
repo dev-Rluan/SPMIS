@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>spmis0822</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/pulse/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="../assets/css/Bootstrap-4-Calendar-No-Custom-Code.css">
+    <link rel="stylesheet" href="../assets/css/chatting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Box-En-login-box-en.css">
+    <link rel="stylesheet" href="../assets/css/Navbar-With-Button.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md shadow-sm" th:fragment="index_navbar">
+        <div class="container-fluid"><a class="navbar-brand" href="/">SPMIS</a><button data-bs-toggle="collapse" class="navbar-toggler collapsed mr-auto p-0" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/projectList" th:if="${session.mem != null}">&nbsp;내 프로젝트</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/publicProjectList">공개 프로젝트</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../projectList.html">HELP</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+            <div th:if="${session.mem == null}"><a class="btn btn-primary" role="button" href="login">로그인</a><a class="btn btn-secondary me-2" role="button" href="join">회원가입</a></div>
+            <div name="${session.mem != null}">
+                <div class="dropstart d-none d-md-block navbar-right" id="usericon-desktop-2" th:if="${session.mem!=null}"><a aria-expanded="false" data-bs-toggle="dropdown" class="text-decoration-none text-reset"><img class="img-fluid rounded-circle" id="usericon-desktop-image-2" src="https://i.pravatar.cc/200" width="40px" height="40px" alt="프로필이미지"></a>
+                    <div class="dropdown-menu">
+                        <h6 class="dropdown-header"><span th:text="${session.mem.getUser_name()}">닉네임</span></h6><a class="dropdown-item" href="mypage">마이페이지</a><a class="dropdown-item" href="logout">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="../assets/js/chatting.js"></script>
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/tinymce.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>spmis</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/pulse/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-4-Calendar-No-Custom-Code.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navbar-With-Button.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="padding-left: 14rem;">
+    <div th:insert="~{commons/project_navbar::project_navbar}"></div>
+    <div th:insert="~{commons/nav_sidebar::nav_sidebar}"></div>
+    <main class="ms-2">
+        <div class="container ms-2">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><span>프로젝트명</span></a></li>
+                <li class="breadcrumb-item"><a href="#"><span id="bc_item_title">페이지명</span><script>
+    let webTitle=document.title;
+    document.querySelector("#bc_item_title").textContent=webTitle;
+</script></a></li>
+            </ol>
+            <header>
+                <div class="row">
+                    <div class="col align-self-center">
+                        <h4>subject명</h4>
+                    </div>
+                    <div class="col text-end align-self-center"><img class="rounded-circle" src="https://i.pravatar.cc/40"></div>
+                </div>
+            </header>
+            <hr>
+        </div>
+        <div class="container m-3">
+            <!-- Start: Bootstrap 4 Calendar (No Custom Code) -->
+            <div class="calendar">
+                <!-- Start: Month header -->
+                <div class="d-flex align-items-center"><i class="far fa-calendar fs-1"></i>
+                    <h2 class="m-2">2022년 5월</h2>
+                </div><!-- End: Month header -->
+                <p class="fst-italic text-muted mb-5">이벤트에 해당되는 내용</p><!-- Start: day names -->
+                <ol class="day-names list-unstyled">
+                    <li class="fw-bold text-uppercase">일</li>
+                    <li class="fw-bold text-uppercase">월</li>
+                    <li class="fw-bold text-uppercase">화</li>
+                    <li class="fw-bold text-uppercase">수</li>
+                    <li class="fw-bold text-uppercase">목</li>
+                    <li class="fw-bold text-uppercase">금</li>
+                    <li class="fw-bold text-uppercase">토</li>
+                </ol><!-- End: day names -->
+                <ol class="days list-unstyled">
+                    <li class="outside">
+                        <div class="date"><span>27</span></div>
+                        <div class="event bg-success"><span>Event with Long Name</span></div>
+                    </li>
+                    <li class="outside">
+                        <div class="date"><span>28</span></div>
+                    </li>
+                    <li class="outside">
+                        <div class="date"><span>29</span></div>
+                    </li>
+                    <li class="outside">
+                        <div class="date"><span>30</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>1</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>2</span></div>
+                        <div class="event span-2 bg-warning"><span>span event</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>3</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>4</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>5</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>6</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>7</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>8</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>9</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>10</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>11</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>12</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>13</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>14</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>15</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>16</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>17</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>18</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>19</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>20</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>21</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>22</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>23</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>24</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>25</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>26</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>27</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>28</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>29</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>30</span></div>
+                    </li>
+                    <li>
+                        <div class="date"><span>31</span></div>
+                    </li>
+                </ol>
+            </div><!-- End: Bootstrap 4 Calendar (No Custom Code) -->
+        </div>
+    </main>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Title</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>The content of your modal.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/tinymce.js"></script>
+</body>
+
+</html>

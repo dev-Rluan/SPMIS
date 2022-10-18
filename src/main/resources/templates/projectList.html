@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>spmis0822</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/pulse/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-4-Calendar-No-Custom-Code.css">
+    <link rel="stylesheet" href="assets/css/chatting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Box-En-login-box-en.css">
+    <link rel="stylesheet" href="assets/css/Navbar-With-Button.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+</head>
+
+<body style="padding-left: 14rem;">
+    <div th:insert="~{commons/project_navbar::project_navbar}"></div>
+    <div th:insert="~{commons/nav_sidebar::nav_sidebar}"></div>
+    <div class="container">
+        <h2>나의 프로젝트</h2>
+        <div class="row mt-5" th:if="${projectList != null}">
+            <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-3" th:each="project : ${projectList}">
+                <div class="card" data-bss-hover-animate="pulse" th:onclick="'location.href=\''+@{project(project_id=${project.getProject_id()})}+'\''">
+                    <div class="card-header" th:text="${project.getProject_name()}">
+                        <h3>Heading</h3>
+                    </div>
+                    <div class="card-body" th:text="${project.getProject_des()}">
+                        <p>Paragraph</p>
+                    </div>
+                    <div class="card-footer"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-people-fill">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                            <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"></path>
+                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path>
+                        </svg><span class="ms-2">인원수</span></div>
+                </div>
+            </div>
+        </div>
+    </div><button class="btn btn-primary d-flex justify-content-center align-items-center align-content-center position-fixed" data-bs-toggle="modal" data-bss-tooltip="" id="float-btn-add" type="button" title="Board를 생성합니다" data-bs-target="#modal-1"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-plus-lg">
+            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"></path>
+        </svg></button>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">프로젝트 생성</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container fs-4 mt-4">
+                        <form action="/createproject" method="post">
+                            <div class="input-group mb-2"></div>
+                            <div class="input-group"></div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-start d-xxl-flex align-items-xxl-center"><span>프로젝트 명</span></td>
+                                            <td><input class="form-control" type="text" name="project_name"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-start">프로젝트 설명</td>
+                                            <td><input class="form-control" type="text" name="project_des"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>공개범위 설정</td>
+                                            <td><select class="form-select" name="privacy_scope">
+                                                    <optgroup label="This is a group">
+                                                        <option value="public" selected="">public</option>
+                                                        <option value="private">private</option>
+                                                    </optgroup>
+                                                </select></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><button class="btn btn-secondary float-end" type="submit">reset</button><button class="btn btn-primary float-end" type="submit">만들기</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/chatting.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/tinymce.js"></script>
+</body>
+
+</html>

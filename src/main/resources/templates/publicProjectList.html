@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>spmis0822</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/pulse/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=1ebaba3465f39106375be623a0ebab45">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css?h=2a2c577c4c5d790275ee2075fbb1290f">
+    <link rel="stylesheet" href="assets/css/Bootstrap-4-Calendar-No-Custom-Code.css?h=27b43cb3c28295c0253e528219a5bbc4">
+    <link rel="stylesheet" href="assets/css/chatting.css?h=8dfaa6f8bfc8db01730acbb83fefc852">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Box-En-login-box-en.css?h=2f98490675fe81362a5b1bc6d43c93bc">
+    <link rel="stylesheet" href="assets/css/Navbar-With-Button.css?h=befd8a398792e305b7ffd4a176b5b585">
+    <link rel="stylesheet" href="assets/css/sidebar.css?h=ef67cc3593ec8a32e1dcc9f761b93dbd">
+</head>
+
+<body>
+    <div th:insert="~{commons/index_navbar::index_navbar}"></div>
+    <section>
+        <div class="container p-0" id="community-forum">
+            <article>
+                <div class="card shadow-sm">
+                    <div class="card-header py-2">
+                        <div class="row">
+                            <div class="col p-0">
+                                <form>
+                                    <div class="input-group"><select class="border rounded form-select w-25" name="community-category">
+                                            <option value="title">제목</option>
+                                            <option value="writer">작성자</option>
+                                        </select><input class="border rounded form-control w-50" type="search" placeholder="내용을 입력하세요" name="community-search"><button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-1">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr th:each="project : ${projectList}">
+                                        <td><a class="d-block text-decoration-none text-reset" th:href="@{/project(project_id=${project.getProject_id()})}"><span th:text="${project.getProject_des()}">글제목</span><br></a></td>
+                                        <td th:text="${project.getProject_des()}"><a class="text-end d-block text-decoration-none text-reset" th:href="@{/project(project_id=${project.getProject_id()})}"><span th:text="${article.getBd_writer()}">작성자</span></a></td>
+                                        <td class="d-none d-lg-table-cell"><a class="text-end d-block text-decoration-none text-black-50" th:href="@{/project(project_id=${project.getProject_id()})}" th:text="${project.getProject_create_date()}"><span th:text="${project.getProject_create_time()}">2008/12/31</span></a></td>
+                                        <td th:if="${session.mem != null}">
+                                            <form action="/requestGroup" method="post"><button class="btn btn-primary float-end" type="submit">참가요청</button><input class="form-control" type="hidden" th:name="project_id" th:value="${project.getProject_id()}"></form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer d-none d-lg-block">
+                        <div class="row">
+                            <div class="col text-center">
+                                <nav style="justify-content: center">
+                                    <ul class="pagination" style="justify-content: center">
+                                        <li class="page-item"><a class="page-link" aria-label="Previous" th:href="@{/community?page={page} (page = ${pagination.getPrevBlock()})}"><span aria-hidden="true">«</span></a></li>
+                                        <li class="page-item active" href="@{/community?page={page} (page = ${pageButton})}"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" aria-label="Next" th:href="@{/community?page={page} (page = ${pagination.getNextBlock()})}"><span aria-hidden="true">»</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div><a class="btn btn-success d-flex justify-content-center align-items-center position-fixed rounded-circle" role="button" data-bs-toggle="tooltip" data-bss-tooltip="" id="float-btn-add" href="community/write.html" title="새로 작성합니다"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-plus-lg" id="float-btn-icon">
+                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"></path>
+            </svg></a>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-init.js?h=4c643c874b5981a6c1263e3cc0da5c12"></script>
+    <script src="assets/js/chatting.js?h=f99a3642ba4c6f898c052dc2bd3c7f47"></script>
+    <script src="assets/js/modal.js?h=87fe8ddc985405bc46aff16b27ecd5fb"></script>
+    <script src="assets/js/sidebar.js?h=5698962290ef9fcb7ad2ffc60db8773a"></script>
+    <script src="assets/js/taskcntchart.js?h=4b57bf467223ce24ad24242342f8358e"></script>
+    <script src="assets/js/tinymce.js?h=48e4b34e223a725be43d90031ad9cc1f"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--AgileJ Ltd. (http://www.agilej.com)--><ajsv>
+    <diagram creationDate="2022-6월-05 21:53" licenseGrade="single" licenseeName="AgileJ community member" licenseeOrganization="agilej-community" populationMethod="manual" version="1.9.2.v20190518-1152">
+        <filterScript>
+
+// no filter script yet defined for this class diagram
+// use CTRL+SPACE for completion suggestions
+
+</filterScript>
+        <class className="com.pmis.model.BoardCommentDTO" modelMemberId="unresolved-type-com.pmis.model.BoardCommentDTO" project="dongyang-pmis-mirror" xLocation="1271" yLocation="34"/>
+        <class className="com.pmis.model.ProjectBoardDTO" modelMemberId="unresolved-type-com.pmis.model.ProjectBoardDTO" project="dongyang-pmis-mirror" xLocation="935" yLocation="572"/>
+        <class className="com.pmis.model.ProjectRuleDTO" modelMemberId="unresolved-type-com.pmis.model.ProjectRuleDTO" project="dongyang-pmis-mirror" xLocation="376" yLocation="66"/>
+        <class className="com.pmis.model.UserRoleDTO" modelMemberId="unresolved-type-com.pmis.model.UserRoleDTO" project="dongyang-pmis-mirror" xLocation="8" yLocation="576"/>
+        <class className="com.pmis.model.ProjectJoinDTO" modelMemberId="unresolved-type-com.pmis.model.ProjectJoinDTO" project="dongyang-pmis-mirror" xLocation="60" yLocation="1073"/>
+        <class className="com.pmis.model.ProjectDTO" modelMemberId="unresolved-type-com.pmis.model.ProjectDTO" project="dongyang-pmis-mirror" xLocation="388" yLocation="567"/>
+        <class className="com.pmis.model.StatusDTO" modelMemberId="unresolved-type-com.pmis.model.StatusDTO" project="dongyang-pmis-mirror" xLocation="810" yLocation="30"/>
+        <class className="com.pmis.model.UserDTO" modelMemberId="unresolved-type-com.pmis.model.UserDTO" project="dongyang-pmis-mirror" xLocation="20" yLocation="88"/>
+    </diagram>
+</ajsv>

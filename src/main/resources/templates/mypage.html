@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>spmis</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/pulse/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-4-Calendar-No-Custom-Code.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navbar-With-Button.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="padding-left: 14rem;">
+    <div th:insert="~{commons/project_navbar::project_navbar}"></div>
+    <div th:insert="~{commons/nav_sidebar::nav_sidebar}"></div>
+    <main class="pt-2 pb-2">
+        <section>
+            <div class="container p-0" id="mypage">
+                <article>
+                    <div>
+                        <ul class="nav nav-tabs mb-2" role="tablist" id="myTab">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" id="description-tab" href="#account">회원정보</a></li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active description" role="tabpanel" id="account">
+                                <div class="row mb-3 m-0">
+                                    <div class="col-lg-4">
+                                        <div class="card shadow-sm mb-3">
+                                            <div class="card-body text-center">
+                                                <form id="profile" method="post" action="mypageUpdateProfileImg" enctype="multipart/form-data">
+                                                    <div class="row">
+                                                        <div class="col"><img class="rounded-circle mb-3 mt-4" src="https://i.pravatar.cc/160" width="160px" height="160px" loading="lazy" alt="프로필이미지"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col"><input class="form-control visually-hidden" type="file" id="upload" name="upload-img"><label class="form-label btn btn-primary m-1" id="upload-img" for="upload" onchange="location.href=&#39;https://www.naver.com&#39;">이미지 변경</label></div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow-sm mb-4">
+                                            <div class="card-header py-2">
+                                                <p class="lead text-primary m-0 fw-bold"><strong>그룹 초대요청</strong><br></p>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>그룹명</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="join : ${joins}" th:if="${join.getJoin_status() == &quot;invite&quot;}">
+                                                        <td>
+                                                            <form action="deleteGroup" method="post"><input class="form-control" type="hidden" name="project_id" th:value="${join.getProject_id()}"><button class="btn btn-secondary float-end" type="submit">&nbsp;거절</button></form>
+                                                            <form action="inviteRequestOK" method="post"><input class="form-control" type="hidden" name="project_id" th:value="${join.getProject_id()}"><button class="btn btn-primary float-end" type="submit">&nbsp;수락</button></form>
+                                                            <p th:text="${join.getProject_name()}">Paragraph</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="card shadow-sm mb-4">
+                                            <div class="card-header d-none d-lg-block py-2">
+                                                <p class="lead text-primary m-0 fw-bold">사용자 설정</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <form method="post">
+                                                    <div class="row">
+                                                        <div class="col py-1"><label class="form-label" for="username"><strong>사용자 이름</strong></label><input class="form-control" type="text" id="username" placeholder="홍길동" name="nickname" required="" minlength="2" maxlength="8" th:value="${session.mem.getUser_name()}"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col py-1"><label class="form-label" for="email"><strong>이메일</strong></label><input class="form-control" type="email" id="email" name="email" th:value="${session.mem.getUser_email()}" readonly="" placeholder="email@email.com"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col py-1">
+                                                            <div class="btn-group float-end" role="group"><button class="btn btn-primary" type="submit" formaction="/mypageModifyAccount">변경</button><button class="btn btn-warning float-end" type="button" data-bs-target="#modal-delete-account" data-bs-toggle="modal">탈퇴</button></div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow-sm mb-4">
+                                            <div class="card-header d-none d-lg-block py-2">
+                                                <p class="lead text-primary m-0 fw-bold">비밀번호 변경</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <form method="post" action="modifyPassword">
+                                                    <div class="row">
+                                                        <div class="col-auto flex-fill py-1"><label class="form-label"><strong>이전 비밀번호</strong></label><input class="form-control" type="password" name="beforePass"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-auto flex-fill py-1"><label class="form-label"><strong>새 비밀번호</strong></label><input class="form-control" type="password" id="input-new-pass" name="newPass"></div>
+                                                        <div class="col-auto flex-fill py-1"><label class="form-label"><strong>새 비밀번호 확인</strong><br></label><i class="fas fa-check text-success pass_input_re_1"></i><i class="fas fa-times text-danger pass_input_re_2"></i><input class="form-control" type="password" id="input-pass-check" name="newPassCheck" xmlns:th="http://www.thymeleaf.org/"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col py-1">
+                                                            <div class="input-group"><button class="btn btn-primary" type="submit">변경</button>
+                                                                <div class="input-group-text p-0 m-0 alert-warning"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/tinymce.js"></script>
+</body>
+
+</html>
