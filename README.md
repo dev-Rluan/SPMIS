@@ -1,7 +1,8 @@
 # SPMIS
 
 ### STUDENT PROJECT MANAGEMENT INFORMATION SYSTEM ( 학생 프로젝트 관리 정보 시스템 )
-
+프로젝트의 관리를 편하게하기 위한 프로젝트 관리 정보 시스템
+TO DO 리스트 칸반형식의 Task들과 외부 회의방을 사용하여 프로젝트를 관리하고 대시보드를 통해 참여중인 프로젝트들의 정보를 확인 할 수있다.
 
 # 팀원 
 
