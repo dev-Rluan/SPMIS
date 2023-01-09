@@ -95,7 +95,8 @@
 - 전체적인 디자인 
 - Heroku 무료 플랜 종료로인한 배포 및 DB 서비스 이전
 
-## 배포 링크(heroku 무료 플랜 중지로 인한 배포 중지 - 다른 배포방식을 찾는중입니다.)
-~https://spmis.herokuapp.com/~
+## 배포 링크 ( 현재 DB 연결 X)
+spmis-rwhisper.koyeb.app/
+~https://spmis.herokuapp.com/ (현재 헤로쿠 무료 플랜 종료로 인한 배포 중단 중)~ 
 
 ### 이슈는 여기 repository에 부탁드립니다
