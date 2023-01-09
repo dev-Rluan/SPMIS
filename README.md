@@ -76,10 +76,10 @@
 ## 기술 스택
 - 개발언어 : Java, JavaScript, HTML, CSS 
 - IDE : Intellij
-- Framework : Spring Framework
+- Framework : Spring Framework, mybaties
 - view : Thymeleaf
-- DB : MySql(workbentch를 사용하여 관리), mybaties
-- 배포 : Heroku
+- DB : MySql(workbentch를 사용하여 관리)
+- 배포 : ~Heroku~, koyeb
 - CI/CD : GitLab
 - 라이브러리 : chart.js
 - 협업 도구 : GitLab, GitHub
